@@ -1,21 +1,14 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class EnemyController : SpaceController
 {
     Vector3 direction = Vector3.zero;
-    private int score ;
+
     int timeCountChangeDirection = 0;
 
     // Update is called once per frame
-    private void Start()
-    {
-        score = Game.Instance.currentScore;
-    }
-
     void Update()
     {
         if (Game.Instance.isAllowStartGame)
@@ -40,8 +33,6 @@ public class EnemyController : SpaceController
     {
         Debug.Log("Enemy Destroy");
         Game.Instance.currentEnemy--;
-        score  += 100;
-        Game.Instance.currentScore = score;
         if (Game.Instance.currentEnemy == 0 && Game.Instance.isPlaying)
         {
             Game.Instance.NextLevel();

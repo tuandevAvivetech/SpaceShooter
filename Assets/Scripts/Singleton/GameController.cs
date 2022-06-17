@@ -4,7 +4,6 @@ using UnityEngine;
 using LTAUnityBase.Base.DesignPattern;
 using UnityEngine.UI;
 
-using TMPro;
 [System.Serializable]
 public class Level
 {
@@ -15,22 +14,20 @@ public class GameController : MonoBehaviour
 {
     public Level[] levels;
     public bool isPlaying = false;
-    
+
     //public int numEnemy = 10;
 
     public int currentEnemy = 0;
-    public int currentScore = 0;
 
     public bool isAllowStartGame = true;
 
-    public TextMeshProUGUI txtGame, txtStage,txtScore;
-    [SerializeField] private PopupEndGame _popupEndGame;
+    public Text txtGame, txtStage;
+
     public int currentLevel = 0;
 
     // Update is called once per frame
     void Update()
     {
-        txtScore.text = "Score : " + Game.Instance.currentScore.ToString();
         if (!isPlaying && Input.GetKeyDown(KeyCode.Return))
         {
             if (isAllowStartGame)
@@ -67,7 +64,6 @@ public class GameController : MonoBehaviour
 
     public void ShowLose()
     {
-        _popupEndGame.OnShow(true);
         txtGame.gameObject.SetActive(true);
         isPlaying = false;
         txtGame.text = "YOU LOSE \n Press Enter To Replay";
@@ -75,8 +71,6 @@ public class GameController : MonoBehaviour
 
     public void ShowMenu()
     {
-        
-        txtScore.text = "Score : " + Game.Instance.currentScore.ToString();
         txtStage.gameObject.SetActive(false);
         currentLevel = 0;
         isAllowStartGame = true;
@@ -101,5 +95,5 @@ public class GameController : MonoBehaviour
 
 public class Game : SingletonMonoBehaviour<GameController>
 {
-    
+
 }

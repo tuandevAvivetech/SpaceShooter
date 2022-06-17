@@ -15,12 +15,4 @@ public class MenuController : MonoBehaviour
         //Debug.Log("sceneName to load: " + scenename);
         SceneManager.LoadScene("GamePlay");
     }
-
-    public void QuitGame()
-    {
-        Debug.Log("Quit Game");
-        Application.Quit();
-
-    }
-    
 }

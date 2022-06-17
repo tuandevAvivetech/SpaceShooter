@@ -6,10 +6,10 @@ public class SpaceController : MoveController
 {
     public Transform tranShoot;
 
-    private float minX;
-    private float maxX;
-    private float minY;
-    private float maxY;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
 
 
     protected override void Move(Vector3 direction)
